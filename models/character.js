@@ -12,7 +12,8 @@ var CharacterSchema = Schema({
     int: Number,
     luck: Number,
     chr: Number,
-    image: String
+    image: String,
+    status: String
 });
 
 module.exports = mongoose.model('Character', CharacterSchema);
