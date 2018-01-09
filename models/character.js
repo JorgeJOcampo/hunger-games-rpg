@@ -5,10 +5,14 @@ var Schema = mongoose.Schema;
 
 var CharacterSchema = Schema({
     name: String,
+    //Si sos mujer tenés más probabilidad de que Santi te venga a hablar de Kamen Rider
     sex: String,
-    description: String,
     str: Number,
-    dex: String
+    dex: Number,
+    int: Number,
+    luck: Number,
+    chr: Number,
+    image: String
 });
 
 module.exports = mongoose.model('Character', CharacterSchema);
