@@ -1,19 +1,19 @@
 'use strict';
 
-var path = require('path');
-var fs = require('fs');
+const path = require('path');
+const fs = require('fs');
 
-var Character = require('../models/character');
+const Character = require('../models/character');
 
 function actionSelector() {
-    var possibleActions = ['attack', 'poison', 'suicide', 'sponsor', 'run_away', 'sanity', 'talk', 'do_nothing'];
-    var weapon = ['bomb', 'sword', 'vasito', 'bit_coin'];
-    var target = [];
+    const possibleActions = ['attack', 'poison', 'suicide', 'sponsor', 'run_away', 'sanity', 'talk', 'do_nothing'];
+    const weapon = ['bomb', 'sword', 'vasito', 'bit_coin'];
+    let target = [];
     return 'attack';
 }
 
 function dayResolution(req, res){
-    var characterId = req.params.id;
+    const characterId = req.params.id;
     Character.findById(characterId)
         .then((character) => {
             if(character.name === 'Lucy'){
@@ -25,11 +25,11 @@ function dayResolution(req, res){
             if(character.name === 'Rodra'){
                 character.name = 'Joto';
             }
-            var action = actionSelector();
+            const action = actionSelector();
             console.log('Action');
             res.status(200).send({action: action});
         });
-    var action = actionSelector();
+    const action = actionSelector();
     console.log('Action');
     res.status(200).send({action: action});
 }
